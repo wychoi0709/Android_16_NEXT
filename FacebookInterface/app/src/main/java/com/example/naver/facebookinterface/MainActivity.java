@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,45 +32,39 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(linearLayoutManager);
         //ItemAnimation / Item Decoration 두 개도 적용해볼 것
+
+        ImageButton imageButton = (ImageButton)findViewById(R.id.newsfeedBtn);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private List<ViewItem> createItem() {
 
         List<ViewItem> items = new ArrayList<>();
-
-        String otherPerson; //언급된 사람, 좋아한 사람 등등
-
-        int writerPicture;  //글쓴이 사진
-        String writer;      //글쓴이 이름
-
-        int time;       //글쓴 시간
-        String location;   //장소
-        int scopeOfText;    //공개범위
-
-        String content;    //내용
-        int link;           //링크사진
-
-        int likeCount;      //좋아요 수
-        int commentCount;   //댓글 수
+        ViewItem viewItem = null;
 
         for(int i = 0; i < 5; i++){
-            otherPerson = "윤석찬";
+            viewItem = new ViewItem();
+            viewItem.otherPerson = "윤석찬";
 
-            writerPicture = R.drawable.hwangimg;
-            writer = "황승만";
+            viewItem.writerPicture = R.drawable.hwangimg;
+            viewItem.writer = "황승만";
 
-            time = 10;
-            location = "서울";
-            scopeOfText = R.drawable.scopepictogram;
+            viewItem.time = 10;
+            viewItem.location = "서울";
+            viewItem.scopeOfText = R.drawable.scopepictogram;
 
-            content = "웃자고 만든거라 하기엔 내용이 웃기지만은 않습니다.\n충분히 참고할 만하네요.\nfrom 윤석찬";
-            link = R.drawable.linkcontent;
+            viewItem.content = "웃자고 만든거라 하기엔 내용이 웃기지만은 않습니다.\n충분히 참고할 만하네요.\nfrom 윤석찬";
+            viewItem.link = R.drawable.linkcontent;
 
-            likeCount = 2;
-            commentCount = 1;
+            viewItem.likeCount = 2;
+            viewItem.commentCount = 1;
 
-        items.add(new ViewItem(otherPerson, writerPicture, writer, time,
-                location, scopeOfText, content, link, likeCount, commentCount));
+        items.add(viewItem);
         }
     return items;
     }

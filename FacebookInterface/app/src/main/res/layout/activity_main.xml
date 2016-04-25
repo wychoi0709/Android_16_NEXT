@@ -45,12 +45,12 @@
                         android:textColor="#d2d4d9"
                         android:textColorHint="#d2d4d9"/>
                 </LinearLayout>
-                <LinearLayout
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.8dp"
                     android:layout_marginLeft="18dp"
                     android:background="#d2d4d9">
-                </LinearLayout>
+                </View>
             </LinearLayout>
             <ImageButton
                 android:layout_width="wrap_content"
@@ -73,9 +73,10 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <ImageButton
+                android:id="@+id/newsfeedBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
+                android:background="@drawable/bt_bg"
                 android:src="@drawable/newsfeedpictogram"
                 android:layout_weight="1"/>
             <ImageButton

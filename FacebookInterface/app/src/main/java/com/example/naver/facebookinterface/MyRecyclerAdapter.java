@@ -35,20 +35,20 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.otherPerson.setText(item.get(position).getOtherPerson());
+        holder.otherPerson.setText(item.get(position).otherPerson);
 
-        holder.writerPicture.setImageResource(item.get(position).getWriterPicture());
-        holder.writer.setText(item.get(position).getWriter());
+        holder.writerPicture.setImageResource(item.get(position).writerPicture);
+        holder.writer.setText(item.get(position).writer);
 
-        holder.time.setText(String.valueOf(item.get(position).getTime()));
-        holder.location.setText(item.get(position).getLocation());
-        holder.scopeOfText.setImageResource(item.get(position).getScopeOfText());
+        holder.time.setText(String.valueOf(item.get(position).time));
+        holder.location.setText(item.get(position).location);
+        holder.scopeOfText.setImageResource(item.get(position).scopeOfText);
 
-        holder.content.setText(item.get(position).getContent());
-        holder.link.setImageResource(item.get(position).getLink());
+        holder.content.setText(item.get(position).content);
+        holder.link.setImageResource(item.get(position).link);
 
-        holder.likeCount.setText(String.valueOf(item.get(position).getLikeCount()));
-        holder.commentCount.setText(String.valueOf(item.get(position).getCommentCount()));
+        holder.likeCount.setText(String.valueOf(item.get(position).likeCount));
+        holder.commentCount.setText(String.valueOf(item.get(position).commentCount));
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
 
