@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:layout_marginBottom="5dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2016년 05월 15일(목)"/>
+            <TextView
+                android:id="@+id/diaryText"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/dateText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="주저리주저리주저리 주저리주렂러댜리ㅓㅈㄷ마ㅣ렁나ㅣ러ㅏㅣㅇㄴ머라ㅣㅇㄴ멂나이"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

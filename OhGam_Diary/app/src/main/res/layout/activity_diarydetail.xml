@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainColor">
+
+
+    <RelativeLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:id="@+id/detailDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016년 4월 15일(목)"/>
+
+        <TextView
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:id="@+id/detailDiaryText"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/detailDateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="주저리주저리주dsjfakldsjakfldsjaklfjdsaklfjkldsafjlkdsadsjaklfdasjklfjdsklafjkldsa저ㅜ주주줒"/>
+
+        <ImageButton
+            android:id="@+id/editDiaryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_btn_bg"
+            android:layout_below="@id/detailDiaryText" />
+
+        <Button
+            android:id="@+id/deleteDiaryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/delete_btn_bg"
+            android:layout_below="@id/editDiaryBtn"/>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>
