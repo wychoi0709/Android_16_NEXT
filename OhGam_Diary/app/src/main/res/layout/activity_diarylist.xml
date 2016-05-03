@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools= "http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,7 +12,8 @@
             android:id="@+id/talkingLayout"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@color/nightColor">
+            android:background="@color/nightColor"
+            tools:ignore="MissingPrefix">
             <ImageView
                 android:paddingTop="7dp"
                 android:paddingBottom="20dp"
@@ -25,7 +27,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="예시 텍스트입니당당당"
-                android:textColor="@color/white"/>
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                fontPath="fonts/misaeng.ttf"/>
             <ImageView
                 android:paddingTop="10dp"
                 android:paddingBottom="13dp"
@@ -35,6 +39,7 @@
                 android:src="@drawable/starts_right_to_talk_text"/>
         </RelativeLayout>
         <ImageView
+            android:id="@+id/talkingBottomImg"
             android:layout_below="@id/talkingLayout"
             android:layout_marginTop="-12dp"
             android:layout_width="match_parent"
@@ -43,7 +48,7 @@
             android:src="@drawable/top_talking_bg"/>
         <!--여기에 리사이클러랑 카드뷰 넣을 것-->
         <FrameLayout
-            android:layout_below="@id/talkingLayout"
+            android:layout_below="@id/talkingBottomImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/mainColor"
@@ -55,10 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/mainColor">
-
             </android.support.v7.widget.RecyclerView>
-
-
         </FrameLayout>
 
         <Button
@@ -70,6 +72,7 @@
             android:layout_alignParentLeft="true"
             android:background="@drawable/only_btn_bg"/>
         <Button
+            android:id="@+id/writeDiaryBtn"
             android:layout_marginRight="7dp"
             android:layout_marginTop="60dp"
             android:layout_alignParentRight="true"

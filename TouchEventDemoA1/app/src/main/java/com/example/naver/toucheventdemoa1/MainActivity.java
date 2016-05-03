@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     Log.d("tag", "onCreate()안에 있는 내부클래스");
-                    return false;
+                    return true;
                 }
-                return true;
+                return false;
             }
         });
         setContentView(myView);
@@ -43,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
-
             if(event.getAction() == MotionEvent.ACTION_DOWN){
                 Log.d("tag", "MyView에서 찍힘");
                 return false;
             }
-
             return true;
         }
     }

@@ -1,7 +1,6 @@
 package com.example.young.ohgamdiary;
 
 import android.app.Application;
-import android.content.Context;
 
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -15,7 +14,6 @@ public class OhgamApplication extends Application {
     public void onCreate() {
         super.onCreate();
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/SDMiSaeng.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
