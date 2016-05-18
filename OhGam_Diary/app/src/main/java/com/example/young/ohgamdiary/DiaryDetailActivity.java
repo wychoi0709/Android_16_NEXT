@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by young on 2016-04-26.
  */
-public class DiaryDetail extends AppCompatActivity{
+public class DiaryDetailActivity extends AppCompatActivity{
 
 
     @Override

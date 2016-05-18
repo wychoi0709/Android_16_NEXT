@@ -7,5 +7,6 @@ public class conversationList {
 
     public String conversation;
     public String tagName;
+    public int publishCount;
 
 }

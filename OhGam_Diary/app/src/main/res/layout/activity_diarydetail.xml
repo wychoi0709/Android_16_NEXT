@@ -34,21 +34,7 @@
             android:layout_height="wrap_content"
             android:text="주저리주저리주dsjfakldsjakfldsjaklfjdsaklfjkldsafjlkdsadsjaklfdasjklfjdsklafjkldsa저ㅜ주주줒"/>
 
-        <ImageButton
-            android:id="@+id/editDiaryBtn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/edit_btn_bg"
-            android:layout_below="@id/detailDiaryText" />
 
-        <Button
-            android:id="@+id/deleteDiaryBtn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/delete_btn_bg"
-            android:layout_below="@id/editDiaryBtn"/>
 
     </RelativeLayout>
 
