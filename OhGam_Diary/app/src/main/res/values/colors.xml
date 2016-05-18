@@ -7,4 +7,5 @@
     <color name="nightColor">#10121d</color>
     <color name="white">#ffffff</color>
     <color name="subColor">#d4d6d1</color>
+    <color name="tagBoxColor">#9999B1</color>
 </resources>

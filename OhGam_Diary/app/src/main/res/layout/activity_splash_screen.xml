@@ -6,7 +6,7 @@
     android:background="@color/mainColor"
     android:gravity="center"
     android:id="@+id/Splashlayout"
-    tools:context="com.example.young.ohgamdiary.SplashScreen">
+    tools:context=".SplashScreenActivity">
 
 
     <ImageView

@@ -13,7 +13,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
  * Created by young on 2016-04-26.
  */
-public class Introduction extends Activity {
+public class IntroductionActivity extends Activity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -32,7 +32,7 @@ public class Introduction extends Activity {
         firstIntroText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Introduction.this, DiaryList.class);
+                Intent intent = new Intent(IntroductionActivity.this, DiaryListActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -41,9 +41,9 @@ public class Introduction extends Activity {
 
 
         //첫 접속에만 가이드 페이지가 나오도록 설정 START
-        if(SplashScreen.NECESSITY_OF_GUIDE_PAGE){
+        if(SplashScreenActivity.NECESSITY_OF_GUIDE_PAGE){
             //처음 접속 변수를 false로 만들기 START
-            SharedPreferences flagOfGuide = getSharedPreferences(SplashScreen.fileName, 0);
+            SharedPreferences flagOfGuide = getSharedPreferences(SplashScreenActivity.fileName, 0);
             SharedPreferences.Editor editor = flagOfGuide.edit();
             editor.putBoolean("isFirst",false);
             editor.commit();

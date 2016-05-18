@@ -1,21 +1,20 @@
 package com.example.young.ohgamdiary;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SplashScreen extends Activity {
+public class SplashScreenActivity extends Activity {
 
     private Timer timer;
     private TimerTask task;
+    Context context;
 
     public static boolean NECESSITY_OF_GUIDE_PAGE ;   //'가이드로 가야하는가?'에 대한 대답
 
@@ -27,6 +26,7 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        context = this;
 
         //처음 접속인지 확인하고, 처음이면 기본값 넣어놓기 START
         SharedPreferences flagOfGuide = getSharedPreferences(fileName, 0);
@@ -44,9 +44,9 @@ public class SplashScreen extends Activity {
 
                 //처음 접속이면 가이드 페이지로, 아니면 일기 리스트 페이지로 가는 인텐트 생성 START
                 if(NECESSITY_OF_GUIDE_PAGE) {
-                    intent = new Intent(getApplicationContext(), Introduction.class);
+                    intent = new Intent(context, IntroductionActivity.class);
                 }else{
-                    intent = new Intent(getApplicationContext(), DiaryList.class);
+                    intent = new Intent(context, DiaryListActivity.class);
                 }
                 Log.d("SplashScreen", "Next intent: " + intent);
                 //처음 접속이면 가이드 페이지로, 아니면 일기 리스트 페이지로 가는 인텐트 생성 END
@@ -57,7 +57,7 @@ public class SplashScreen extends Activity {
         };
         //TimerTask 생성 및 Intent 생성 END
         timer = new Timer();
-        timer.schedule(task, 2500);
+        timer.schedule(task, 1000);
         Log.d("SplashScreen", "onCreate() END");
     }
 
