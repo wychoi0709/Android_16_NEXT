@@ -1,4 +1,4 @@
-package com.example.young.ohgamdiary;
+package com.example.young.ohgamdiary.asynctask;
 
 /**
  * Created by WonYoung on 2016. 5. 10..

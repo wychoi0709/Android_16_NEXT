@@ -29,7 +29,8 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".DiaryDetailActivity"
+
+        <activity android:name=".DiaryWritingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="portrait">
         </activity>

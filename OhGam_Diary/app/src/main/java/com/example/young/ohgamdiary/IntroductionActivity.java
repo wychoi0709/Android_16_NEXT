@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.young.ohgamdiary.dao.DatabaseManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -24,8 +27,6 @@ public class IntroductionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
-
-
 
         //그냥 우선 넘기기(다 한번에 보려고)
         TextView firstIntroText = (TextView)findViewById(R.id.firstIntroText);

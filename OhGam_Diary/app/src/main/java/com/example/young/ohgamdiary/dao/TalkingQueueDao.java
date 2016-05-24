@@ -1,6 +1,6 @@
 package com.example.young.ohgamdiary.dao;
 
-import com.example.young.ohgamdiary.conversationList;
+import com.example.young.ohgamdiary.asynctask.conversationList;
 
 import java.util.ArrayList;
 

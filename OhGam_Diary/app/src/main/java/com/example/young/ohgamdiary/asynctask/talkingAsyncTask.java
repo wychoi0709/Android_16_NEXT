@@ -1,4 +1,4 @@
-package com.example.young.ohgamdiary;
+package com.example.young.ohgamdiary.asynctask;
 
 import android.os.AsyncTask;
 import android.os.SystemClock;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.young.ohgamdiary.DiaryListActivity;
 import com.example.young.ohgamdiary.dao.TalkingQueueDao;
 
 import java.util.ArrayList;
