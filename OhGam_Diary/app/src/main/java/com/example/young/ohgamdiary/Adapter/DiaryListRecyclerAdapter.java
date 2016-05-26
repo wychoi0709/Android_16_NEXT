@@ -1,6 +1,7 @@
 package com.example.young.ohgamdiary.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +12,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.young.ohgamdiary.DiaryListActivity;
+import com.example.young.ohgamdiary.DiaryWritingActivity;
 import com.example.young.ohgamdiary.R;
+import com.example.young.ohgamdiary.SplashScreenActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,8 @@ public class DiaryListRecyclerAdapter extends RecyclerView.Adapter<DiaryListRecy
     private static Context context;
     private List<ViewItem> item;
     private int itemLayout;
+    public static int UPDATE_ITEM_POSITION;
+    public static ViewItem UPDATE_ITEM = new ViewItem();
 
     public DiaryListRecyclerAdapter(DiaryListActivity diaryListActivity, List<ViewItem> item, int itemLayout) {
         this.context = diaryListActivity;
@@ -75,7 +80,27 @@ public class DiaryListRecyclerAdapter extends RecyclerView.Adapter<DiaryListRecy
             holder.commaText.setVisibility(View.VISIBLE);
         }
 
-        holder.diaryText.setOnClickListener(new View.OnClickListener() {
+        holder.editDiaryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, DiaryWritingActivity.class);
+                intent.putExtra("id", item.get(position).id);
+                intent.putExtra("dateText", item.get(position).dateText);
+                intent.putExtra("diaryText", item.get(position).diaryText);
+                intent.putExtra("tags", item.get(position).tags);
+                intent.putExtra("isOpenDiary", item.get(position).isOpenDiary);
+
+                Log.d("adapter에 있는 아이디 값 ", String.valueOf(item.get(position).id));
+
+                UPDATE_ITEM_POSITION = position;
+
+                context.startActivity(intent);
+
+            }
+        });
+
+        holder.diaryText.setOnClickListener(new View.OnClickListener() {    //텍스트 말고 레이아웃에 달 것(그리고 텍스트들에는 클릭을 넘겨버릴 것
             @Override
             public void onClick(View v) {
                 if (item.get(position).isOpenDiary) {
@@ -86,14 +111,23 @@ public class DiaryListRecyclerAdapter extends RecyclerView.Adapter<DiaryListRecy
 
                 Log.d("열고 닫기 2", position + " " + item.get(position).isOpenDiary);
                 notifyItemChanged(position);
-
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
         return item.size();
+    }
+
+    public void modifyData() {
+        item.get(UPDATE_ITEM_POSITION).dateText = UPDATE_ITEM.dateText;
+        item.get(UPDATE_ITEM_POSITION).diaryText = UPDATE_ITEM.diaryText;
+        item.get(UPDATE_ITEM_POSITION).id = UPDATE_ITEM.id;
+        //item.get(UPDATE_ITEM_POSITION).tags = UPDATE_ITEM.tags.get(0);
+
+        notifyItemChanged(UPDATE_ITEM_POSITION);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

@@ -1,5 +1,6 @@
 package com.example.young.ohgamdiary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.young.ohgamdiary.adapter.DiaryListRecyclerAdapter;
 import com.example.young.ohgamdiary.dao.DatabaseHandler;
 import com.example.young.ohgamdiary.model.DiaryContent;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -30,6 +33,8 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
     String strCurYear;
     String strCurMonth;
     String strCurDate;
+    Intent intent;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +42,9 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_write);
 
         Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
+
+        intent = getIntent();
+
 
 
         diaryContent = new DiaryContent();
@@ -59,9 +67,18 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
         strCurDate = CurDateFormat.format(currentDate);
         //오늘 날짜 입력해주기 END
 
-        year.setHint(strCurYear);
-        month.setHint(strCurMonth);
-        date.setHint(strCurDate);
+        if(intent.getExtras().getBoolean("isOpenDiary") == true){
+            year.setText(intent.getExtras().getString("dateText").substring(0,4));
+            month.setText(intent.getExtras().getString("dateText").substring(5,7));
+            date.setText(intent.getExtras().getString("dateText").substring(8,10));
+            content.setText(intent.getExtras().getString("diaryText"));
+            tags.setText(intent.getExtras().getString("tags"));
+
+        }else {
+            year.setHint(strCurYear);
+            month.setHint(strCurMonth);
+            date.setHint(strCurDate);
+        }
 
         confirmBtn.setOnClickListener(this);
 
@@ -70,6 +87,8 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         Log.d("DiaryWritingActivity", "onClick START");
+
+
         if(v.getId() == R.id.confirmBtn) {
             //현재 시간(시,분,초) 갱신 START
             long nowAgain = System.currentTimeMillis();
@@ -109,8 +128,28 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
             diaryContent.tags = String.valueOf(tags.getText());
 
 
+
+            //데이터 베이스 넣는 코드 START
             DatabaseHandler databaseHandler = DatabaseHandler.open(DiaryWritingActivity.this);
-            long cnt = databaseHandler.insertDiaryContent(diaryContent);
+            long cnt = -1;
+
+            if(intent.getExtras().getBoolean("isOpenDiary") == true){   //수정일 경우
+                diaryContent.id = Integer.valueOf(intent.getExtras().getInt("id"));
+                Log.d("다이어리 아이디 잘 들어감 : ", String.valueOf(diaryContent.id + "  " + Integer.valueOf(intent.getExtras().getInt("iddiary"))));
+                databaseHandler.updateDiaryContent(diaryContent);
+                DiaryListRecyclerAdapter.UPDATE_ITEM.id = diaryContent.id;
+                DiaryListRecyclerAdapter.UPDATE_ITEM.diaryText = diaryContent.content;
+                DiaryListRecyclerAdapter.UPDATE_ITEM.dateText =  diaryContent.year + "-" + diaryContent.month + "-" + diaryContent.date
+                        + " "
+                        + diaryContent.hour + ":" + diaryContent.minute + ":" + diaryContent.second;
+
+                //태그는 나중에 해결하자(문제는 ArrayList로 담아놓는 걸로 선언해놔서 지금은 String으로만 되어 있음. 쪼개서 add해줘야 함)
+                cnt = 1;
+                SplashScreenActivity.IS_UPDATE_DIARY = true;
+            }else {                                                     //생성일 경우
+                cnt = databaseHandler.insertDiaryContent(diaryContent);
+                SplashScreenActivity.IS_REAL_WRITE = true;
+            }
 
             if (cnt == -1) {
                 Toast.makeText(DiaryWritingActivity.this,
@@ -125,6 +164,7 @@ public class DiaryWritingActivity extends AppCompatActivity implements View.OnCl
             }
 
             databaseHandler.close();
+            //데이터 베이스 넣는 코드 END
 
             finish();
         }

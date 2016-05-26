@@ -7,6 +7,7 @@ import android.text.Editable;
  */
 public class DiaryContent {
 
+    public int id;
     public String year;
     public String month;
     public String date;

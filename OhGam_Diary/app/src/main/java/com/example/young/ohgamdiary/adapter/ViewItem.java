@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ViewItem {
 
+    public int id;
     public String dateText;
     public String diaryText;
     public ArrayList<String> tags;

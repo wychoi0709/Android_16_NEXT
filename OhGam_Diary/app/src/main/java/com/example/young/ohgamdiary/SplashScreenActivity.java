@@ -15,6 +15,8 @@ public class SplashScreenActivity extends Activity {
     private Timer timer;
     private TimerTask task;
     Context context;
+    public static boolean IS_REAL_WRITE = false;
+    public static boolean IS_UPDATE_DIARY = false;
 
     public static boolean NECESSITY_OF_GUIDE_PAGE ;   //'가이드로 가야하는가?'에 대한 대답
 

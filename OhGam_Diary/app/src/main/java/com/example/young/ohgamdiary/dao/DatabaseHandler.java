@@ -31,22 +31,10 @@ public class DatabaseHandler {
         databaseManager.close();
     }
 
-    public long insertDiaryContent(DiaryContent diaryContent){
-        ContentValues values = new ContentValues();
-
-        values.put("iddiary", (byte[]) null);
-        values.put("contents", diaryContent.content);
-        values.put("writeDate", diaryContent.year + "-" + diaryContent.month + "-" + diaryContent.date);
-        values.put("writeTime", diaryContent.hour+ ":" + diaryContent.minute + ":" + diaryContent.second);
-        values.put("user_iduser", 0);
-
-        return db.insert("diary", null, values);
-    }
-
     public Cursor selectDiaryList(int listCount) throws SQLException{
 
-        Cursor cursor = db.rawQuery("SELECT * FROM diary ORDER BY iddiary DESC LIMIT 10 OFFSET" + listCount, null);
-
+        Cursor cursor = db.rawQuery("SELECT * FROM diary ORDER BY iddiary DESC LIMIT 10 OFFSET " + listCount, null);
+        //Cursor cursor = db.rawQuery("SELECT * FROM diary ORDER BY iddiary", null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -54,4 +42,25 @@ public class DatabaseHandler {
         return cursor;
     }
 
+
+    //디비에 생성하는 코드 START
+    public long insertDiaryContent(DiaryContent diaryContent){
+        ContentValues values = new ContentValues();
+
+        values.put("contents", diaryContent.content);
+        values.put("writeDate", diaryContent.year + "-" + diaryContent.month + "-" + diaryContent.date);
+        values.put("writeTime", diaryContent.hour+ ":" + diaryContent.minute + ":" + diaryContent.second);
+        values.put("user_iduser", 0);
+
+        return db.insert("diary", null, values);
+    }
+    //디비에 생성하는 코드 END
+
+    //디비에 업데이트하는 코드 START
+    public void updateDiaryContent(DiaryContent diaryContent) {
+
+        db.execSQL("UPDATE diary SET contents = '" + diaryContent.content + "', writeDate = '" + diaryContent.year + "-" + diaryContent.month + "-" + diaryContent.date + "', writeTime = '" + diaryContent.hour+ ":" + diaryContent.minute + ":" + diaryContent.second + "', user_iduser = " + 0 + " WHERE iddiary = " + diaryContent.id + ";");
+        Log.d("update문", "UPDATE diary SET contents = '" + diaryContent.content + "', writeDate = '" + diaryContent.year + "-" + diaryContent.month + "-" + diaryContent.date + "', writeTime = '" + diaryContent.hour+ ":" + diaryContent.minute + ":" + diaryContent.second + "', user_iduser = " + 0 + " WHERE iddiary = " + diaryContent.id + ";");
+    }
+    //디비에 업데이트하는 코드 END
 }

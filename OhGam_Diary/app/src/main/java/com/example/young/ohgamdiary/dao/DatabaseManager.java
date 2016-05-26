@@ -12,7 +12,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     public DatabaseManager(Context context) {
-        super(context, "ohgamdb.db", null, 8);
+        super(context, "ohgamdb.db", null, 10);
 
     }
 
@@ -32,12 +32,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "  PRIMARY KEY (`iduser`))\n;";
 
         String diaryTableCreateSQL = "CREATE TABLE IF NOT EXISTS `diary` (\n" +
-                "  `iddiary` INT,\n" +
+                "  `iddiary` INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "  `contents` BLOB NOT NULL,\n" +
                 "  `writeDate` DATE NOT NULL,\n" +
                 "  `writeTime` TIME NOT NULL,\n" +
                 "  `user_iduser` INT NOT NULL,\n" +
-                "  PRIMARY KEY (`iddiary`),\n" +
                 "  CONSTRAINT `fk_diary_user`\n" +
                 "    FOREIGN KEY (`user_iduser`)\n" +
                 "    REFERENCES `user` (`iduser`)\n" +
