@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/resultCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="5dp">
+        <RelativeLayout
+            android:id="@+id/resultLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/departureInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="출발지"
+                android:textColor="@color/colorText"/>
+            <TextView
+                android:id="@+id/busStopInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/departureInfoText"
+                android:text="상암고등학교(14-231)"
+                android:textColor="@color/colorText"/>
+            <LinearLayout
+                android:id="@+id/visualInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/busStopInfoText"
+                android:padding="20dp"
+                android:background="#fff3d3">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/presentTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16시"
+                        android:textColor="@color/colorText"/>
+                    <RelativeLayout
+                        android:id="@+id/presentResultItemLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/presentTimeText"
+                        android:background="@color/colorSafe">
+                        <TextView
+                            android:id="@+id/presentResultText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:text="앉을 수 있을거에요."
+                            android:textColor="#fff"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:id="@+id/nextTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16시"
+                        android:textColor="@color/colorText"/>
+                    <RelativeLayout
+                        android:id="@+id/nextResultItemLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nextTimeText"
+                        android:background="@color/colorBusy">
+                        <TextView
+                            android:id="@+id/nextResultText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:text="앉을 수 있을거에요."
+                            android:textColor="#fff"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:id="@+id/twoLaterTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16시"
+                        android:textColor="@color/colorText"/>
+                    <RelativeLayout
+                        android:id="@+id/twoLaterResultItemLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/twoLaterTimeText"
+                        android:background="@color/colorMiddle">
+                        <TextView
+                            android:id="@+id/rwoLaterresultText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:text="앉을 수 있을거에요."
+                            android:textColor="#fff"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

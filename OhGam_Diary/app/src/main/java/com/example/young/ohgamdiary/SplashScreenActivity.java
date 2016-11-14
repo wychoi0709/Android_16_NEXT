@@ -45,11 +45,11 @@ public class SplashScreenActivity extends Activity {
                 Intent intent;
 
                 //처음 접속이면 가이드 페이지로, 아니면 일기 리스트 페이지로 가는 인텐트 생성 START
-                if(NECESSITY_OF_GUIDE_PAGE) {
+//                if(NECESSITY_OF_GUIDE_PAGE) {
                     intent = new Intent(context, IntroductionActivity.class);
-                }else{
-                    intent = new Intent(context, DiaryListActivity.class);
-                }
+//                }else{
+//                    intent = new Intent(context, DiaryListActivity.class);
+//                }
                 Log.d("SplashScreen", "Next intent: " + intent);
                 //처음 접속이면 가이드 페이지로, 아니면 일기 리스트 페이지로 가는 인텐트 생성 END
 

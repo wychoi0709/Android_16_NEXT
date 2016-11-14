@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/actionbar_logo"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_below="@id/appBarLayout">
+        <TextView
+            android:id="@+id/whereText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            android:text="어디서 어디로 가나요?"
+            android:textSize="22sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorText"/>
+
+        <RelativeLayout
+            android:id="@+id/departureInfoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_below="@id/whereText">
+            <TextView
+                android:id="@+id/departureText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출발"
+                android:layout_marginBottom="3dp"
+                android:layout_alignParentBottom="true"
+                android:textSize="16sp"
+                android:textColor="@color/colorText"/>
+            <EditText
+                android:id="@+id/departureEdit"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="#ffda7b"
+                android:textColorHint="#afafaf"
+                android:hint="정류장 이름 또는 번호"
+                android:textSize="13sp"
+                android:maxLines="1"
+
+                android:layout_toRightOf="@id/departureText"/>
+            <Button
+                android:id="@+id/departureSearchBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/search_btn_bg"
+                android:layout_toRightOf="@id/departureEdit" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/destinationInfoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/departureInfoLayout"
+            android:layout_marginLeft="8dp">
+            <TextView
+                android:id="@+id/destinationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="도착"
+                android:layout_marginBottom="3dp"
+                android:layout_alignParentBottom="true"
+                android:textSize="16sp"
+                android:textColor="@color/colorText"/>
+            <EditText
+                android:id="@+id/destinationEdit"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="#ffda7b"
+                android:textColorHint="#afafaf"
+                android:hint="정류장 이름 또는 번호"
+                android:textSize="13sp"
+                android:maxLines="1"
+                android:layout_toRightOf="@id/destinationText"/>
+            <Button
+                android:id="@+id/destinationSearchBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/search_btn_bg"
+                android:layout_toRightOf="@id/destinationEdit" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/searchingCard"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="#ffda7b"
+            android:layout_below="@id/destinationInfoLayout">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/searchingRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/resultBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/searchingCard"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/result_btn_bg"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:text="결 과 보 기"/>
+    </RelativeLayout>
+
+</RelativeLayout>

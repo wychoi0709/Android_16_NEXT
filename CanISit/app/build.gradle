@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.wonyoung.canisit"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-cli-1.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-codec-1.9.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-collections-3.2.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-collections-3.2.2-javadoc.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-configuration-1.10.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-configuration-1.10-javadoc.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-configuration-1.10-sources.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-configuration-1.10-test-sources.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-configuration-1.10-tests.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-io-2.5.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-io-2.5-javadoc.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-lang-2.6.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-lang-2.6-javadoc.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-lang-2.6-sources.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-logging-1.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/commons-logging-1.2-javadoc.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/fluent-hc-4.5.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpclient-4.5.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpclient-cache-4.5.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpclient-win-4.5.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpcore-4.4.4.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpcore-4.4.5.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpcore-ab-4.4.5.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpcore-nio-4.4.5.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/httpmime-4.5.2.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/jna-4.1.0.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/jna-platform-4.1.0.jar')
+    compile files('src/main/java/com/wonyoung/canisit/lib/jazzlib-binary-0.07-juz.jar')
+}

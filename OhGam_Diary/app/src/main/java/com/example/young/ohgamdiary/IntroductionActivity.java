@@ -47,6 +47,7 @@ public class IntroductionActivity extends Activity {
             SharedPreferences flagOfGuide = getSharedPreferences(SplashScreenActivity.fileName, 0);
             SharedPreferences.Editor editor = flagOfGuide.edit();
             editor.putBoolean("isFirst",false);
+
             editor.commit();
             //처음 접속 변수를 false로 만들기 END
         }
